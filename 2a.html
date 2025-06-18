@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neural Network Visualization</title>
+    <style>
+        body {
+            font-family: monospace;
+            background-color: #f0f0f0;
+            text-align: center;
+            padding: 50px;
+        }
+        #network {
+            white-space: pre;
+            font-size: 20px;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+<body>
+    <h1>Neural Network Visualization</h1>
+    <div id="network"></div>
+    <button onclick="startAnimation()">Start Animation</button>
+
+    <script>
+        const states = [
+            `   o
+            /|\\
+           / | \\
+          x  +  *
+         / \\ | / \\
+        ~   - o   !
+        `,
+            `   o
+            /|\\
+           / | \\
+          x  +  *
+         / \\ | / \\
+        ~   - o   !
+        `,
+            `   o
+            /|\\
+           / | \\
+          x  +  *
+         / \\ | / \\
+        ~   - o   !
+        `,
+            `   o
+            /|\\
+           / | \\
+          x  +  *
+         / \\ | / \\
+        ~   - o   !
+        `
+        ];
+
+        let currentState = 0;
+
+        function startAnimation() {
+            const networkDiv = document.getElementById('network');
+            networkDiv.textContent = states[currentState];
+
+            setInterval(() => {
+                currentState = (currentState + 1) % states.length;
+                networkDiv.textContent = states[currentState];
+            }, 1000);
+        }
+    </script>
+</body>
+</html>
